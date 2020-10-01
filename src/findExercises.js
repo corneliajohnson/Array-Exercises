@@ -28,7 +28,9 @@ export const getInstructorById = (id) => {
 // Ex: getStudentByName("sMiTh")
 
 export const getStudentByLastName = (lastName) => {
-  return students.find((student) => student.lastName === lastName);
+  return students.find(
+    (student) => student.lastName.toLowerCase() === lastName.toLowerCase()
+  );
 };
 
 // Export a function called getStudentByName
@@ -39,7 +41,11 @@ export const getStudentByLastName = (lastName) => {
 
 export const getStudentByName = (fullName) => {
   return students.find(
-    (student) => student.firstName + " " + student.lastName === fullName
+    (student) =>
+      student.firstName.toLocaleLowerCase() +
+        " " +
+        student.lastName.toLocaleLowerCase() ===
+      fullName.toLocaleLowerCase()
   );
 };
 
